@@ -5,7 +5,6 @@ import 'package:toast/toast.dart';
 
 BuildContext _context;
 
-// ignore: must_be_immutable
 class NotificationWidget extends StatelessWidget {
   String message;
   NotificationWidget(this.message);
@@ -48,7 +47,7 @@ class NotificationWidget extends StatelessWidget {
     var platformChannelSpecifics = NotificationDetails(
         androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
     await flutterLocalNotificationsPlugin.show(
-        0, 'Superbe notification', 'Lorem Ipsum is simply dummy text of the printing', platformChannelSpecifics,
+        0, 'Superbe notification', 'Click on that notification', platformChannelSpecifics,
         payload: 'item x');
   }
 
@@ -57,9 +56,6 @@ class NotificationWidget extends StatelessWidget {
   }
 
   Future onSelectNotification(String payload) async {
-    if (payload != null) {
-      debugPrint('notification payload: ' + payload);
       Toast.show("notification ouverte", _context);
-    }
   }
 }
