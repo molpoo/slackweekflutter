@@ -1,38 +1,51 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:toast/toast.dart';
 
 // ignore: must_be_immutable
-class Messages extends StatelessWidget {
-  String message;
-  Messages(this.message);
+class MessageWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Messages')),
+      body: MessageWidgetElement(),
+    );
+  }
+}
+
+class MessageWidgetElement extends StatefulWidget {
+  @override
+  State createState() => _MessageStatefulWidgetState();
+}
+
+class _MessageStatefulWidgetState extends State<MessageWidgetElement> {
+  String message = "";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: Text('Messages')
-      ),
       body: Center(
-        child: Column(
-          children: [
-            Text("Messages: $message"),
-            QrImage(
-              data: "$message",
-              size: 200.0,
-            )
-          ],
-        )
-      ),
+          child: Column(
+        children: [
+          Text(
+            "Message pass through constructor: $message",
+            key: Key("key_message"),
+          ),
+          QrImage(
+            data: "$message",
+            size: 100.0,
+          )
+        ],
+      )),
       floatingActionButton: FloatingActionButton(
+        key: Key('key_fab_toast'),
         child: Icon(Icons.add),
         onPressed: () => {
-          Toast.show("Test message $message", context, duration: Toast.LENGTH_SHORT)
+          setState(() {
+            message = "coucou";
+          })
         },
       ),
     );
   }
-
-
 }

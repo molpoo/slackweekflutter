@@ -63,31 +63,6 @@ class _MovieListElementsState extends State<MovieListElements> {
   }
 
   Widget _buildListOfMovies(List<Movie> movies) {
-    return GridView.builder(
-        gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        itemBuilder: (BuildContext context, int index) {
-          return Scaffold(
-              body: Center(
-                  child: SizedBox(
-                      child: Card(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          child: GestureDetector(
-                              child: Hero(
-                                  tag: "movie_cover" + movies[index].coverUrl,
-                                  child: Image.network(movies[index].coverUrl)),
-                              onTap: () => {
-                                    Navigator.pushNamed(
-                                        context, MovieDetails.routeName,
-                                        arguments: movies[index])
-                                  }),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          elevation: 3))));
-        },
-        itemCount: movies.length);
-
     return GridView.count(
         crossAxisCount: 2,
         children: List.generate(movies.length, (index) {
@@ -102,7 +77,8 @@ class _MovieListElementsState extends State<MovieListElements> {
                                   child: Image.network(movies[index].coverUrl)),
                               onTap: () => {
                                     Navigator.pushNamed(
-                                        context, MovieDetails.routeName,
+                                        context,
+                                        MovieDetails.routeName,
                                         arguments: movies[index])
                                   }),
                           shape: RoundedRectangleBorder(
