@@ -6,8 +6,6 @@ import 'package:toast/toast.dart';
 BuildContext _context;
 
 class NotificationWidget extends StatelessWidget {
-  String message;
-  NotificationWidget(this.message);
 
   @override
   Widget build(BuildContext context) {

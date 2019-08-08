@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:flutter_test_slack_week/movies/bloc/repository/movie_repository.dart';
-import 'package:flutter_test_slack_week/movies/model/Movie.dart';
+import 'package:flutter_test_slack_week/moviesBloc/bloc/repository/movie_repository.dart';
+import 'package:flutter_test_slack_week/moviesBloc/model/Movie.dart';
 import 'bloc.dart';
 
 class MovieBloc extends Bloc<MovieEvent, MovieState> {

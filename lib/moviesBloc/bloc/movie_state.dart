@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_test_slack_week/movies/model/Movie.dart';
+import 'package:flutter_test_slack_week/moviesBloc/model/Movie.dart';
 import 'package:meta/meta.dart';
 
 @immutable

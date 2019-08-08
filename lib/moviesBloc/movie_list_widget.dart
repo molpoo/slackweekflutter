@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_test_slack_week/movies/bloc/repository/movie_repository.dart';
+import 'package:flutter_test_slack_week/moviesBloc/bloc/repository/movie_repository.dart';
 import 'package:toast/toast.dart';
 import './model/Movie.dart';
 import 'bloc/movie_bloc.dart';
@@ -14,7 +14,7 @@ class MovieList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Movies list')),
+      appBar: AppBar(title: Text('Movies with BloC')),
       body: Center(
         child: MovieListElements(),
       ),
