@@ -1,4 +1,4 @@
-# flutter_test_slack_week
+# Flutter Test Project
 
 A test Flutter project that feature:
  - Bottom Navigation
