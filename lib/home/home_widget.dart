@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test_slack_week/messages/messages_widget.dart';
-import 'package:flutter_test_slack_week/movieProvider/providers/imdb_provider.dart';
-import 'package:flutter_test_slack_week/movieProvider/repository/movie_repository.dart';
-import 'package:flutter_test_slack_week/movieProvider/widgets/home_screen.dart';
+import 'package:flutter_test_slack_week/moviesProvider/providers/imdb_provider.dart';
+import 'package:flutter_test_slack_week/moviesProvider/repository/movie_repository.dart';
+import 'package:flutter_test_slack_week/moviesProvider/widgets/home_screen.dart';
 import 'package:flutter_test_slack_week/moviesBloc/movie_list_widget.dart';
 import 'package:flutter_test_slack_week/notification/notification.dart';
 import 'package:provider/provider.dart';

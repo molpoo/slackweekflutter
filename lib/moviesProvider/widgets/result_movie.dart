@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_test_slack_week/movieProvider/providers/imdb_provider.dart';
+import 'package:flutter_test_slack_week/moviesProvider/providers/imdb_provider.dart';
 import 'package:provider/provider.dart';
 
 class ResultMovie extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_test_slack_week/movieProvider/widgets/result_movie.dart';
-import 'package:flutter_test_slack_week/movieProvider/widgets/search_movie_field.dart';
+import 'package:flutter_test_slack_week/moviesProvider/widgets/result_movie.dart';
+import 'package:flutter_test_slack_week/moviesProvider/widgets/search_movie_field.dart';
 
 class HomeScreen extends StatelessWidget {
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_test_slack_week/movieProvider/models/Movie.dart';
-import 'package:flutter_test_slack_week/movieProvider/repository/movie_repository.dart';
+import 'package:flutter_test_slack_week/moviesProvider/models/Movie.dart';
+import 'package:flutter_test_slack_week/moviesProvider/repository/movie_repository.dart';
 
 class MovieState with ChangeNotifier {
   MovieState(this.repository);
