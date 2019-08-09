@@ -11,6 +11,7 @@ class BluetoothStateProvider with ChangeNotifier {
     _isScanning = newValue;
     notifyListeners();
   }
+  String get textScanning => !_isScanning ? "Start scanning" : "Stop scanning";
 
   setScanResults(ScanResult newValue) {
     if (!_scanResults.contains(newValue.device.name) && newValue.device.name.isNotEmpty) {
@@ -19,15 +20,15 @@ class BluetoothStateProvider with ChangeNotifier {
     }
   }
 
-  startScan() {
-    isScanning = true;
-    FlutterBlue.instance.scan().listen((scanResult) {
-      setScanResults(scanResult);
-    });
-  }
-
-  stopScan() {
-    isScanning = false;
-    FlutterBlue.instance.stopScan();
+  toggleScan() {
+    if(isScanning) {
+      isScanning = false;
+      FlutterBlue.instance.stopScan();
+    } else {
+      isScanning = true;
+      FlutterBlue.instance.scan().listen((scanResult) {
+        setScanResults(scanResult);
+      });
+    }
   }
 }

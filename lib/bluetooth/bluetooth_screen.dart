@@ -16,8 +16,8 @@ class BluetoothScreen extends StatelessWidget {
             child: Column(
           children: <Widget>[
             RaisedButton(
-              child: Text(!bluetoothProvider.isScanning ? "Start scan" : "Stop scan"),
-              onPressed: () => !bluetoothProvider.isScanning ? bluetoothProvider.startScan() : bluetoothProvider.stopScan(),
+              child: Text(bluetoothProvider.textScanning),
+              onPressed: () => bluetoothProvider.toggleScan(),
             ),
             Container(
               child: bluetoothProvider.isScanning
