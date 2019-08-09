@@ -1,5 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test_slack_week/bluetooth/bluetooth_screen.dart';
+import 'package:flutter_test_slack_week/bluetooth/providers/bluetooth_state.dart';
 import 'package:flutter_test_slack_week/messages/messages_widget.dart';
 import 'package:flutter_test_slack_week/moviesProvider/providers/imdb_provider.dart';
 import 'package:flutter_test_slack_week/moviesProvider/repository/movie_repository.dart';
@@ -19,11 +23,16 @@ class _HomeState extends State<Home> {
   int _currentIndex = 0;
   final List<Widget> _children = [
     MovieList(),
+    ChangeNotifierProvider(
+        builder: (_) => MovieState(MovieRepositoryImpl()), child: HomeScreen()),
     MessageWidget(),
     NotificationWidget(),
-    ChangeNotifierProvider(builder: (_) => MovieState(MovieRepositoryImpl()), child: HomeScreen())
+    ChangeNotifierProvider(
+      builder: (_) => BluetoothStateProvider(), child: BluetoothScreen(),
+    ),
   ];
-  GlobalKey<FormState> _homeKey = GlobalKey<FormState>(debugLabel: '_homeScreenkey');
+  GlobalKey<FormState> _homeKey =
+      GlobalKey<FormState>(debugLabel: '_homeScreenkey');
 
   @override
   Widget build(BuildContext context) {
@@ -33,27 +42,29 @@ class _HomeState extends State<Home> {
         key: _homeKey,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.blueAccent,
+        selectedItemColor: Colors.black54,
         unselectedItemColor: Colors.grey,
         onTap: onTabTapped,
         currentIndex: _currentIndex,
         items: [
           BottomNavigationBarItem(
-            icon: new Icon(Icons.movie),
-            title: new Text('Movie Bloc'),
+            icon: Icon(Icons.movie),
+            title: Text('Movie Bloc'),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.mail),
-            title: new Text('Messages'),
+            icon: Icon(Icons.edit_attributes),
+            title: Text('Movie Provider'),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.settings),
-            title: new Text('Settings'),
+            icon: Icon(Icons.mail),
+            title: Text('Messages'),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.edit_attributes),
-            title: new Text('Movie Provider'),
-          )
+            icon: Icon(Icons.settings),
+            title: Text('Settings'),
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.bluetooth), title: Text('Bluetooth'))
         ],
       ),
     );

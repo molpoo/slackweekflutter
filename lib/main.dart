@@ -16,9 +16,9 @@ class App extends StatelessWidget {
       title: 'Flutter Slack Week',
       initialRoute: Home.routeName,
       routes: {
-        Home.routeName: (context) => Home(),
-        MovieList.routeName: (context) => MovieList(),
-        MovieDetails.routeName: (context) => MovieDetails()
+        Home.routeName: (_) => Home(),
+        MovieList.routeName: (_) => MovieList(),
+        MovieDetails.routeName: (_) => MovieDetails()
       },
     );
   }
