@@ -49,7 +49,7 @@ class NotificationWidget extends StatelessWidget {
         payload: 'item x');
   }
 
-  Future onDidReceiveLocalNotification(int id, String title, String body, String payload) {
+  onDidReceiveLocalNotification(int id, String title, String body, String payload) {
     debugPrint('notification payload: ' + payload);
   }
 

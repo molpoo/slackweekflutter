@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test_slack_week/bluetooth/bluetooth_screen.dart';
@@ -11,6 +9,7 @@ import 'package:flutter_test_slack_week/moviesProvider/widgets/home_screen.dart'
 import 'package:flutter_test_slack_week/moviesBloc/movie_list_widget.dart';
 import 'package:flutter_test_slack_week/notification/notification.dart';
 import 'package:provider/provider.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class Home extends StatefulWidget {
   static const routeName = '/';
@@ -30,6 +29,14 @@ class _HomeState extends State<Home> {
     ChangeNotifierProvider(
       builder: (_) => BluetoothStateProvider(), child: BluetoothScreen(),
     ),
+    Scaffold(
+      appBar: AppBar(
+        title: Text("Webview"),
+      ),
+      body: WebView(
+        initialUrl: "http://www.google.fr",
+      ),
+    )
   ];
   GlobalKey<FormState> _homeKey =
       GlobalKey<FormState>(debugLabel: '_homeScreenkey');
@@ -64,7 +71,11 @@ class _HomeState extends State<Home> {
             title: Text('Settings'),
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.bluetooth), title: Text('Bluetooth'))
+              icon: Icon(Icons.bluetooth), title: Text('Bluetooth')),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.web),
+            title: Text("Web")
+          )
         ],
       ),
     );
